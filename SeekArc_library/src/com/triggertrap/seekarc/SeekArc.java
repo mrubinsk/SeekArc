@@ -30,6 +30,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -582,5 +584,21 @@ public class SeekArc extends View {
 
 	public void setMax(int mMax) {
 		this.mMax = mMax;
+	}
+
+	/**
+	 * Set the stroke color of the thumb seeker. Thumb drawable must
+	 * support the GradientDrawable interface of this call will be ignored.
+	 *
+	 * @param color  The color value to set the stroke to.
+	 * @param width  The width of the stroke.Z
+	 */
+	public void setThumbStroke(@ColorInt int color, int width) {
+		try {
+			GradientDrawable gd = (GradientDrawable) mThumb;
+			gd.setStroke(width, color);
+		} catch (ClassCastException e) {
+			Log.e(TAG, e.getMessage());
+		}
 	}
 }
