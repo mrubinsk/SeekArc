@@ -39,6 +39,9 @@
         <attr name="touchInside" format="boolean" />
         <attr name="clockwise" format="boolean" />
         <attr name="enabled" format="boolean" />
+        <attr name="touchUpdate" format="boolean" />
+        <attr name="thumbnailTouch" format="boolean" />
+        <attr name="rollOver" format="boolean" />
     </declare-styleable>
     
     <declare-styleable name="SeekArcTheme">
